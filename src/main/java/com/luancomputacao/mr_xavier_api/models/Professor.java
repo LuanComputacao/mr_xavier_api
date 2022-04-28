@@ -8,6 +8,7 @@ import java.util.Set;
 
 @Entity
 public class Professor extends BaseModel {
+    private String cpf;
     private String name;
     private String phone;
     private String email;
@@ -27,8 +28,9 @@ public class Professor extends BaseModel {
         super();
     }
 
-    public Professor(Long id, String uuid, String name, String phone, String email, String user, String password) {
+    public Professor(Long id, String uuid, String cpf, String name, String phone, String email, String user, String password) {
         super(id, uuid);
+        this.cpf = cpf;
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -87,5 +89,13 @@ public class Professor extends BaseModel {
     @Override
     public int hashCode() {
         return Objects.hash(name, phone, email);
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }

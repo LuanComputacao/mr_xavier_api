@@ -2,15 +2,8 @@ package com.luancomputacao.mr_xavier_api.services;
 
 import com.luancomputacao.mr_xavier_api.models.Professor;
 
-import java.util.Set;
-
-public interface ProfessorService {
-
-    Professor findById();
+public interface ProfessorService extends CrudService<Professor, Long> {
 
     Professor findByCpf();
 
-    Set<Professor> findAll();
-
-    Professor save();
 }

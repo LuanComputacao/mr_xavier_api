@@ -1,9 +1,10 @@
 package com.luancomputacao.mr_xavier_api.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity
-public class BaseModel {
+@MappedSuperclass
+public class BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -11,10 +12,10 @@ public class BaseModel {
 
     protected String uuid;
 
-    public BaseModel() {
+    public BaseEntity() {
     }
 
-    public BaseModel(Long id, String uuid) {
+    public BaseEntity(Long id, String uuid) {
         this.id = id;
         this.uuid = uuid;
     }

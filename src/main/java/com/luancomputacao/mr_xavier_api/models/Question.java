@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-public class Question extends BaseModel {
+public class Question extends BaseEntity {
     private String wording;
     private Integer level;
     private QuestionTypeEnum questionTypeEnum;

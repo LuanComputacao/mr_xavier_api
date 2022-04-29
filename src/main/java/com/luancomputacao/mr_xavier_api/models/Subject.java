@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-public class Subject extends BaseModel {
+public class Subject extends BaseEntity {
     private String name;
 
     @OneToMany

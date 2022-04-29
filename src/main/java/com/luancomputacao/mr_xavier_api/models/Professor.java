@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-public class Professor extends BaseModel {
+public class Professor extends BaseEntity {
     private String cpf;
     private String name;
     private String phone;

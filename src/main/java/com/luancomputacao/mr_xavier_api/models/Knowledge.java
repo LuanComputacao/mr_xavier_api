@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-public class Knowledge extends BaseModel {
+public class Knowledge extends BaseEntity {
     private String name;
     @ManyToMany
     private Set<Question> questionSet;

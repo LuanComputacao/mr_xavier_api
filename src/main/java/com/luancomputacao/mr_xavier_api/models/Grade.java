@@ -6,7 +6,7 @@ import javax.persistence.ManyToOne;
 import java.util.Set;
 
 @Entity
-public class Grade extends BaseModel {
+public class Grade extends BaseEntity {
     private String name;
 
     // RELATIONSHIPS

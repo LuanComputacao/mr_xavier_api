@@ -2,7 +2,6 @@ package com.luancomputacao.mr_xavier_api.bootstrap;
 
 import com.luancomputacao.mr_xavier_api.models.User;
 import com.luancomputacao.mr_xavier_api.services.UserService;
-import com.luancomputacao.mr_xavier_api.services.map.UserServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -12,8 +11,8 @@ public class DataLoader implements CommandLineRunner {
     public final UserService userService;
 
 
-    public DataLoader() {
-        userService = new UserServiceMap();
+    public DataLoader(UserService userService) {
+        this.userService = userService;
     }
 
     @Override

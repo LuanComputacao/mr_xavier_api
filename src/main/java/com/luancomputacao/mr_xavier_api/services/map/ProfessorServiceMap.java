@@ -1,11 +1,11 @@
 package com.luancomputacao.mr_xavier_api.services.map;
 
 import com.luancomputacao.mr_xavier_api.models.Professor;
-import com.luancomputacao.mr_xavier_api.services.CrudService;
+import com.luancomputacao.mr_xavier_api.services.ProfessorService;
 
 import java.util.Set;
 
-public class ProfessorServiceMap  extends AbstractMapService<Professor, Long> implements CrudService<Professor, Long> {
+public class ProfessorServiceMap  extends AbstractMapService<Professor, Long> implements ProfessorService {
     @Override
     public Set<Professor> findAll() {
         return super.findAll();
@@ -29,5 +29,10 @@ public class ProfessorServiceMap  extends AbstractMapService<Professor, Long> im
     @Override
     public Professor findById(Long id) {
         return super.findById(id);
+    }
+
+    @Override
+    public Professor findByCpf() {
+        return null;
     }
 }

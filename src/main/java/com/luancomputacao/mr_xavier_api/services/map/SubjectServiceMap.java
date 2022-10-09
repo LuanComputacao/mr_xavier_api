@@ -2,10 +2,11 @@ package com.luancomputacao.mr_xavier_api.services.map;
 
 import com.luancomputacao.mr_xavier_api.models.Subject;
 import com.luancomputacao.mr_xavier_api.services.CrudService;
+import com.luancomputacao.mr_xavier_api.services.SubjectService;
 
 import java.util.Set;
 
-public class SubjectServiceMap  extends AbstractMapService<Subject, Long> implements CrudService<Subject, Long> {
+public class SubjectServiceMap  extends AbstractMapService<Subject, Long> implements SubjectService {
     @Override
     public Set<Subject> findAll() {
         return super.findAll();

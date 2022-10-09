@@ -3,17 +3,17 @@ package com.luancomputacao.mr_xavier_api.models;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
 public class Professor extends BaseEntity {
-    private String cpf;
-    private String name;
-    private String phone;
-    private String email;
-    private String user;
-    private String password;
+
+    private String speciality;
+
+    @OneToOne
+    private User user;
 
     // RELATIONSHIPS
     @OneToMany
@@ -23,79 +23,80 @@ public class Professor extends BaseEntity {
     @JoinColumn(name = "professor_id")
     private Set<Professor> professorSet;
 
-
     public Professor() {
         super();
     }
 
-    public Professor(Long id, String uuid, String cpf, String name, String phone, String email, String user, String password) {
-        super(id, uuid);
-        this.cpf = cpf;
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
+    public Professor(User user, String speciality) {
         this.user = user;
-        this.password = password;
+        this.speciality = speciality;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(String user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSpeciality() {
+        return speciality;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
+    }
+
+    public Set<Question> getQuestionSet() {
+        return questionSet;
+    }
+
+    public void setQuestionSet(Set<Question> questionSet) {
+        this.questionSet = questionSet;
+    }
+
+    public Set<Professor> getProfessorSet() {
+        return professorSet;
+    }
+
+    public void setProfessorSet(Set<Professor> professorSet) {
+        this.professorSet = professorSet;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Professor)) return false;
+
         Professor professor = (Professor) o;
-        return Objects.equals(name, professor.name) && Objects.equals(phone, professor.phone) && Objects.equals(email, professor.email);
+
+        if (getSpeciality() != null ? !getSpeciality().equals(professor.getSpeciality()) : professor.getSpeciality() != null)
+            return false;
+        if (getUser() != null ? !getUser().equals(professor.getUser()) : professor.getUser() != null) return false;
+        if (getQuestionSet() != null ? !getQuestionSet().equals(professor.getQuestionSet()) : professor.getQuestionSet() != null)
+            return false;
+        return getProfessorSet() != null ? getProfessorSet().equals(professor.getProfessorSet()) : professor.getProfessorSet() == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, phone, email);
+        int result = getSpeciality() != null ? getSpeciality().hashCode() : 0;
+        result = 31 * result + (getUser() != null ? getUser().hashCode() : 0);
+        result = 31 * result + (getQuestionSet() != null ? getQuestionSet().hashCode() : 0);
+        result = 31 * result + (getProfessorSet() != null ? getProfessorSet().hashCode() : 0);
+        return result;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    @Override
+    public String toString() {
+        return "Professor{" +
+                "id=" + id +
+                ", uuid='" + uuid + '\'' +
+                ", speciality='" + speciality + '\'' +
+                ", user=" + user +
+                ", questionSet=" + questionSet +
+                ", professorSet=" + professorSet +
+                '}';
     }
 }

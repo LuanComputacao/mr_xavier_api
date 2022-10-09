@@ -1,11 +1,11 @@
 package com.luancomputacao.mr_xavier_api.services.map;
 
 import com.luancomputacao.mr_xavier_api.models.Knowledge;
-import com.luancomputacao.mr_xavier_api.services.CrudService;
+import com.luancomputacao.mr_xavier_api.services.KnowledgeService;
 
 import java.util.Set;
 
-public class KnowledgeServiceMap  extends AbstractMapService<Knowledge, Long> implements CrudService<Knowledge, Long> {
+public class KnowledgeServiceMap  extends AbstractMapService<Knowledge, Long> implements KnowledgeService {
     @Override
     public Set<Knowledge> findAll() {
         return super.findAll();

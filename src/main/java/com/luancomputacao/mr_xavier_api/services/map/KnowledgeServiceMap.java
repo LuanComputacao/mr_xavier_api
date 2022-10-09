@@ -2,9 +2,11 @@ package com.luancomputacao.mr_xavier_api.services.map;
 
 import com.luancomputacao.mr_xavier_api.models.Knowledge;
 import com.luancomputacao.mr_xavier_api.services.KnowledgeService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class KnowledgeServiceMap  extends AbstractMapService<Knowledge, Long> implements KnowledgeService {
     @Override
     public Set<Knowledge> findAll() {

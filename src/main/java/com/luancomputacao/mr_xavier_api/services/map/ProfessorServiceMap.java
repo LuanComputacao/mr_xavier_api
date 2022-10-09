@@ -2,9 +2,11 @@ package com.luancomputacao.mr_xavier_api.services.map;
 
 import com.luancomputacao.mr_xavier_api.models.Professor;
 import com.luancomputacao.mr_xavier_api.services.ProfessorService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class ProfessorServiceMap  extends AbstractMapService<Professor, Long> implements ProfessorService {
     @Override
     public Set<Professor> findAll() {

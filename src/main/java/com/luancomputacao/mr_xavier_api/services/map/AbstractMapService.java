@@ -1,10 +1,13 @@
 package com.luancomputacao.mr_xavier_api.services.map;
 
+import org.springframework.stereotype.Service;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+@Service
 public class AbstractMapService<T, ID>{
 
     protected Map<ID, T> map = new HashMap<>();

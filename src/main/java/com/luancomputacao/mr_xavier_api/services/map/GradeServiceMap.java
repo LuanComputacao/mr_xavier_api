@@ -2,9 +2,11 @@ package com.luancomputacao.mr_xavier_api.services.map;
 
 import com.luancomputacao.mr_xavier_api.models.Grade;
 import com.luancomputacao.mr_xavier_api.services.GradeService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class GradeServiceMap extends AbstractMapService<Grade, Long> implements GradeService {
     @Override
     public Set<Grade> findAll() {

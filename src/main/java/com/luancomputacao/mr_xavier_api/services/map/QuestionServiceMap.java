@@ -2,9 +2,11 @@ package com.luancomputacao.mr_xavier_api.services.map;
 
 import com.luancomputacao.mr_xavier_api.models.Question;
 import com.luancomputacao.mr_xavier_api.services.QuestionService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class QuestionServiceMap  extends AbstractMapService<Question, Long> implements QuestionService {
     @Override
     public Set<Question> findAll() {

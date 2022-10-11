@@ -1,11 +1,19 @@
 package com.luancomputacao.mr_xavier_api.models;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import java.util.Objects;
 import java.util.Set;
 
+@Setter
+@Getter
+@NoArgsConstructor
 @Entity
 public class Question extends BaseEntity {
     private String wording;
@@ -25,10 +33,7 @@ public class Question extends BaseEntity {
     private Set<Grade> gradeSet;
 
 
-
-    public Question() {
-    }
-
+    @Builder
     public Question(Long id, String uuid, String wording, Integer level, QuestionTypeEnum questionTypeEnum, Integer spaces, Boolean published) {
         this.id = id;
         this.uuid = uuid;
@@ -39,45 +44,6 @@ public class Question extends BaseEntity {
         this.published = published;
     }
 
-    public String getWording() {
-        return wording;
-    }
-
-    public void setWording(String wording) {
-        this.wording = wording;
-    }
-
-    public Integer getLevel() {
-        return level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
-
-    public QuestionTypeEnum getQuestionTypeEnum() {
-        return questionTypeEnum;
-    }
-
-    public void setQuestionTypeEnum(QuestionTypeEnum questionTypeEnum) {
-        this.questionTypeEnum = questionTypeEnum;
-    }
-
-    public Integer getSpaces() {
-        return spaces;
-    }
-
-    public void setSpaces(Integer spaces) {
-        this.spaces = spaces;
-    }
-
-    public Boolean getPublished() {
-        return published;
-    }
-
-    public void setPublished(Boolean published) {
-        this.published = published;
-    }
 
     @Override
     public boolean equals(Object o) {

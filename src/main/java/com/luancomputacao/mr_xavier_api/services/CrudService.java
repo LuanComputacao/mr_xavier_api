@@ -11,7 +11,9 @@ public interface CrudService<T extends BaseEntity,  ID extends Long, D extends D
 
     Set<T> findAll();
 
-    D findById(ID id);
+    D findByIdDto(ID id);
+
+    T findById(ID id);
 
     T save(T object);
 

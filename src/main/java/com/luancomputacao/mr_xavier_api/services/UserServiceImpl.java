@@ -37,8 +37,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO findById(Long aLong) {
-        return null;
+    public UserDTO findByIdDto(Long aLong) {
+        return userMapper.userToUserDTO(userRepository.findById(aLong).orElse(null));
+    }
+
+    @Override
+    public User findById(Long aLong) {
+        return userRepository.findById(aLong).orElse(null);
     }
 
     @Override

@@ -1,12 +1,9 @@
-package com.luancomputacao.mr_xavier_api.controllers;
+package com.luancomputacao.mr_xavier_api.controllers.v1;
 
 import com.luancomputacao.mr_xavier_api.api.v1.model.UserDTO;
 import com.luancomputacao.mr_xavier_api.services.UserService;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,4 +24,9 @@ public class UserRestController {
         return userService.findAllDto();
     }
 
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public UserDTO getUserById(@PathVariable Long id) {
+        return userService.findByIdDto(id);
+    }
 }

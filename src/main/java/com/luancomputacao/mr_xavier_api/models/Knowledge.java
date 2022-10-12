@@ -1,30 +1,26 @@
 package com.luancomputacao.mr_xavier_api.models;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import java.util.Objects;
 import java.util.Set;
 
+@Setter
+@Getter
+@NoArgsConstructor
 @Entity
 public class Knowledge extends BaseEntity {
     private String name;
     @ManyToMany
     private Set<Question> questionSet;
 
-    public Knowledge() {
-        super();
-    }
 
     public Knowledge(Long id, String uuid, String name) {
-        super(id, uuid);
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+        super();
         this.name = name;
     }
 

@@ -22,14 +22,23 @@ public class DataLoader implements CommandLineRunner {
 
         // Create root user
         User root = new User();
-        root.setId(1L);
         root.setCpf("00000000000");
         root.setName("root");
         root.setPhone("00000000000");
         root.setEmail("root@mrxavier.com");
         root.setUser("root");
         root.setPassword("root");
-        User savedUser = userService.save(root);
+        User savedRoot = userService.save(root);
+
+        User admin = new User();
+        admin.setCpf("00000000000");
+        admin.setName("admin");
+        admin.setPhone("00000000000");
+        admin.setEmail("admin@mrxavier.com");
+        admin.setUser("admin");
+        admin.setPassword("admin");
+
+        User savedAdmin = userService.save(admin);
 
         System.out.println("Loaded users: " + userService.findAll());
 

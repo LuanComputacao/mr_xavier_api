@@ -1,11 +1,19 @@
 package com.luancomputacao.mr_xavier_api.models;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import java.util.Objects;
 import java.util.Set;
 
+@Setter
+@Getter
+@NoArgsConstructor
 @Entity
 public class Subject extends BaseEntity {
     private String name;
@@ -14,12 +22,10 @@ public class Subject extends BaseEntity {
     @JoinColumn(name="subject_id")
     private Set<Question> questions;
 
-    public Subject() {
-        super();
-    }
 
+    @Builder
     public Subject(Long id, String uuid, String name) {
-        super(id, uuid);
+        super();
         this.name = name;
     }
 

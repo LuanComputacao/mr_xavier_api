@@ -1,7 +1,11 @@
 package com.luancomputacao.mr_xavier_api.models;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
+
+import static java.util.UUID.randomUUID;
 
 @MappedSuperclass
 public class BaseEntity implements Serializable {
@@ -13,11 +17,7 @@ public class BaseEntity implements Serializable {
     protected String uuid;
 
     public BaseEntity() {
-    }
-
-    public BaseEntity(Long id, String uuid) {
-        this.id = id;
-        this.uuid = uuid;
+        this.uuid = randomUUID().toString();
     }
 
     public Long getId() {

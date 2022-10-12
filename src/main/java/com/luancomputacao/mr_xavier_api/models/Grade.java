@@ -1,10 +1,13 @@
 package com.luancomputacao.mr_xavier_api.models;
 
+import lombok.*;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import java.util.Set;
 
+@Data
 @Entity
 public class Grade extends BaseEntity {
     private String name;
@@ -16,20 +19,13 @@ public class Grade extends BaseEntity {
     @ManyToOne
     private Professor professor;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Grade(String name, Set<Question> questionSet, Professor professor) {
         this.name = name;
+        this.questionSet = questionSet;
+        this.professor = professor;
     }
 
-    @Override
-    public String toString() {
-        return "Grade{" +
-                "id='" + id + '\'' +
-                ", uuid='" + uuid + '\'' +
-                ", name='" + name + '\'' +
-                '}';
+    public Grade() {
+
     }
 }

@@ -14,4 +14,8 @@ public class UserDTO implements DTO {
     private String password;
     private String cpf;
     private String phone;
+
+    public void setUserUrl(String s) {
+
+    }
 }

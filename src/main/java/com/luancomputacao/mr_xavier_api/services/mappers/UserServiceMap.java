@@ -1,9 +1,10 @@
-package com.luancomputacao.mr_xavier_api.services;
+package com.luancomputacao.mr_xavier_api.services.mappers;
 
 import com.luancomputacao.mr_xavier_api.api.v1.mapper.UserMapper;
 import com.luancomputacao.mr_xavier_api.api.v1.model.UserDTO;
 import com.luancomputacao.mr_xavier_api.models.User;
 import com.luancomputacao.mr_xavier_api.repositories.UserRepository;
+import com.luancomputacao.mr_xavier_api.services.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -12,23 +13,22 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceMap extends AbstractMapService<User, Long, UserDTO> implements UserService {
 
     private final UserMapper userMapper;
     private final UserRepository userRepository;
 
-    public UserServiceImpl(UserMapper userMapper, UserRepository userRepository) {
+    public UserServiceMap(UserMapper userMapper, UserRepository userRepository) {
         this.userMapper = userMapper;
         this.userRepository = userRepository;
     }
 
     @Override
     public List<UserDTO> findAllDto() {
-        List<UserDTO> users = userRepository.findAll()
+        return userRepository.findAll()
                 .stream()
                 .map(userMapper::userToUserDTO)
                 .collect(Collectors.toList());
-        return users;
     }
 
     @Override

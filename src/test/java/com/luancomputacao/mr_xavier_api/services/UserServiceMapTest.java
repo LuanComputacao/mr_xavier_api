@@ -5,6 +5,7 @@ import com.luancomputacao.mr_xavier_api.api.v1.model.UserDTO;
 import com.luancomputacao.mr_xavier_api.models.User;
 import com.luancomputacao.mr_xavier_api.repositories.UserRepository;
 
+import com.luancomputacao.mr_xavier_api.services.mappers.UserServiceMap;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -16,7 +17,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-class UserServiceImplTest {
+class UserServiceMapTest {
 
     public static final Long ID = 2L;
     public static final String NAME = "Jimmy";
@@ -27,14 +28,14 @@ class UserServiceImplTest {
 
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
 
-        userService = new UserServiceImpl(UserMapper.INSTANCE, userRepository);
+        userService = new UserServiceMap(UserMapper.INSTANCE, userRepository);
     }
 
     @Test
-    public void getAllUsers() throws Exception {
+    public void getAllUsers() {
 
         //given
         List<User> categories = Arrays.asList(new User(), new User(), new User());

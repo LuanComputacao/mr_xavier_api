@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO implements DTO {
+public class UserDTO implements DataTransferObject {
     private Long id;
     private String name;
     private String email;

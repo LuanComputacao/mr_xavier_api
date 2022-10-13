@@ -1,12 +1,12 @@
 package com.luancomputacao.mr_xavier_api.services;
 
-import com.luancomputacao.mr_xavier_api.api.v1.model.DTO;
+import com.luancomputacao.mr_xavier_api.api.v1.model.DataTransferObject;
 import com.luancomputacao.mr_xavier_api.models.BaseEntity;
 
 import java.util.List;
 import java.util.Set;
 
-public interface CrudService<T extends BaseEntity,  ID extends Long, D extends DTO>{
+public interface CrudService<T extends BaseEntity,  ID extends Long, D extends DataTransferObject>{
     List<D> findAllDto();
 
     Set<T> findAll();

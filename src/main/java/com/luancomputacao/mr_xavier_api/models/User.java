@@ -5,8 +5,9 @@ import lombok.*;
 import javax.persistence.*;
 
 
-@Data
-@EqualsAndHashCode(callSuper = false)
+@Setter
+@Getter
+@NoArgsConstructor
 @Entity
 public class User extends BaseEntity {
     @Id
@@ -22,4 +23,15 @@ public class User extends BaseEntity {
     private String user;
     private String password;
 
+    @Builder
+    public User(Long id, String uuid, String cpf, String name, String phone, String email, String user, String password) {
+        this.id = id;
+        this.uuid = uuid;
+        this.cpf = cpf;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.user = user;
+        this.password = password;
+    }
 }

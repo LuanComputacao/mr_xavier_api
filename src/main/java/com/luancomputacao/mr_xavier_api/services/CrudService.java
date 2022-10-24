@@ -6,12 +6,12 @@ import com.luancomputacao.mr_xavier_api.models.BaseEntity;
 import java.util.List;
 import java.util.Set;
 
-public interface CrudService<T extends BaseEntity,  ID extends Long, D extends DataTransferObject>{
-    List<D> findAllDto();
+public interface CrudService<T, ID, DTO> {
+    List<DTO> findAllDto();
 
     Set<T> findAll();
 
-    D findByIdDto(ID id);
+    DTO findByIdDto(ID id);
 
     T findById(ID id);
 

@@ -1,13 +1,17 @@
 package com.luancomputacao.mr_xavier_api.services.mappers;
 
+import com.luancomputacao.mr_xavier_api.models.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 class UserMapServiceTest {
+
+    UserMapService userMapService;
 
     @BeforeEach
     void setUp() {
+        userMapService = new UserMapService(userMapper);
+        userMapService.save(User.builder().id(1L).build());
     }
 
     @Test
